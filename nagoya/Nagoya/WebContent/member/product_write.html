@@ -1,0 +1,117 @@
+
+<!doctype html>
+<html>
+	<head>
+		<title>장수하늘소</title>
+		<meta charset="utf-8">
+		<link href="../css/common.css" rel="stylesheet">
+		<link href="../css/noso.css" rel="stylesheet">
+		<script src="../js/script.js"></script>
+		<script type="text/javascript" src="../smarteditor2/js/service/HuskyEZCreator.js" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="hb">
+			<div class="w1200">
+				<div class="h80">
+					<ul class="side">
+						<li><a href="login.html">로그인</a></li>
+						<li><a href="#">사이트맵</a></li>
+						<li><a href="#">전체메뉴</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="header">
+			<header>
+				<h1 class="logo"><a href="../index.html">남녀노소</a></h1>
+				<nav>
+					<ul>
+						<li><a href="../intro/intro.html">회사소개</a></li>
+						<li><a href="../product/product.html">제품안내</a></li>
+						<li><a href="../recruit/recruit.html">채용공고</a></li>
+						<li><a href="../bbs/community.html">커뮤니티</a></li>
+					</ul>
+				</nav>
+			</header>
+		</div>
+		
+		<!-- content area-->
+		<div class="contents">
+			<form name="product" method="post" action="">
+			
+				<h2>제품 등록</h2>
+				<p> 필수 입력란을 반드시 입력하셔야 합니다.</p>
+				<table summary="제목, 내용, 글쓴이, 파일등록 표입니다." class="member_table">
+				<caption class="readonly"> 회원가입 표</caption> <!-- 표 제목 -->
+				<colgroup>
+					<col width="20%">
+					<col width="*">
+				</colgroup>
+				<tbody>
+					<tr>
+					<textarea id="froala-editor">Initialize the Froala WYSIWYG HTML Editor on a textarea.</textarea>
+						<th>제품명</th>
+						<td><input type="text" name="name" class="w80" ></td>
+					</tr>
+					<tr>
+						<th>제품안내</th>
+						<td><textarea name="froala" id="froala-editor" class="w80 noresize"></textarea></td>
+					</tr>
+					
+					
+					
+					<tr>
+						<th>글쓴이</th>
+						<td><input type="text" name="writer" class="w80"></td>
+					</tr>
+					<tr>
+						<th>첨부파일</th>
+						<td><input type="file" name="purl" class="w80"></td>
+					</tr>
+					<tr>
+						<th>제조일자</th>
+						<td><input type="date" name="cdate" class="w80"></td>
+					</tr>
+					<tr>
+						<th>비밀번호</th>
+						<td><input type="password" name="pwd" class="w80"></td>
+					</tr>
+					<tr>
+						<th>선택</th>
+						<td>
+						<input type="radio" name="sel" value="0" checked>사용자
+						<input type="radio" name="sel" value="1">관리자
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" class="txtc">
+						<input type="button" value="전송" class="btn_ok" >&nbsp;&nbsp;
+						<input type="button" value="취소" onclick="location.href='../index.html'" class="btn_reset">
+					</tr>
+				</tbody>
+			</table>
+		</form>
+		</div>
+		<!--content end -->
+		
+		<script>
+		  $(function() {
+			$('textarea#froala-editor').froalaEditor()
+		  });
+		</script>
+
+		
+		<footer>
+				<div class="w1200">
+					<p>
+					남녀노소 인재개발원 주식회사.
+					대표:노소연</p><!-- 문단태그 !-->
+					<address>
+						대전광역시 전밍동
+					</address>
+				</div>
+			</footer>
+		</body>
+	</html>

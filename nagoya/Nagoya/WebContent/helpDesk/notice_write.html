@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+	<head>
+		<title>장수하늘소</title>
+		<meta charset="utf-8">
+		<link href="../css/common.css" rel="stylesheet">
+		<link href="../css/jangsu.css" rel="stylesheet">
+		<script src="../js/jquery-3.3.1.min.js"></script>
+		<script src="../js/script.js"></script>
+
+		<script type="text/javascript" src="../smarteditor2/js/service/HuskyEZCreator.js" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="hb">
+			<div class="w1200">
+				<div class="h80">
+					<ul class="side">
+						<li><a href="login.html">로그인</a></li>
+						<li><a href="#">사이트맵</a></li>
+						<li><a href="#">전체메뉴</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="header">
+			<header>
+				<h1 class="logo"><a href="../index.html">장수하늘소</a></h1>
+				<nav id="nav">
+					<ul class="depth1">
+						<li><a href="intro/intro.html">회사소개</a>
+							<ul class="depth2">
+								<li><a href="#">인사말</a></li>
+								<li><a href="#">연혁</a></li>
+								<li><a href="#">UI디자인</a></li>
+								<li><a href="#">오시는길</a></li>
+							</ul>
+						</li>
+						<li><a href="product/product.html">제품안내</a></li>
+						<li><a href="recruit/recruit.html">채용정보</a></li>
+						<li><a href="bbs/community.html">커뮤니티</a>
+							<ul  class="depth2">
+								<li><a href="../bbs/notice.html">공지사항</a></li>
+								<li><a href="../bbs/qa.html">질문답변</a></li>
+								<li><a href="../bbs/faq.html">자주하는질문</a></li>
+								<li><a href="../bbs/download.html">자료실</a></li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+			</header>
+		</div>
+		
+		<!-- content area -->
+		<div class="contents">
+		<form name="notice" method="post" action="">
+			<h2>공지사항</h2>
+			<p>필수 입력란은 반드시 입력하셔야 합니다</p>
+			<table summary="번호, 제목, 내용, 글쓴이, 파일 입니다" class="member_table">
+				<caption class="readonly">공지사항 표</caption>
+				<colgroup>
+					<col width="20%">
+					<col width="*">
+				</colgroup>
+				<tbody>
+					<tr>
+						<th>제목</th>
+						<td><input type="text" name="title" class="w80"></td>
+					</tr>
+					<tr>
+						<th>내용</th>
+						<td><textarea  class="w80 noresize" name="ir1" id="ir1"></textarea></td>
+					</tr>
+
+					
+					<tr>
+						<th>글쓴이</th>
+						<td><input type="text" name="writer" class="w80"></td>
+					</tr>
+					<tr>
+						<th>첨부파일</th>
+						<td><input type="file" name="purl" class="w80"></td>
+					</tr>
+					
+					
+					<tr>
+						<td colspan="2" class="txtc">
+						<input type="button" value="전송" class="btn_ok">&nbsp;&nbsp;
+						<input type="button" value="취소" onclick="location.href='../index.html'" class="btn_reset">
+					</tr>
+				</tbody>
+			</table>
+			
+		</form>
+		</div>
+		<!-- content end -->
+
+					<script type="text/javascript">
+
+					var oEditors = [];
+					nhn.husky.EZCreator.createInIFrame({
+						oAppRef: oEditors,
+						elPlaceHolder: "ir1",
+						sSkinURI: "../smarteditor2/SmartEditor2Skin.html",
+						fCreator: "createSEditor2"
+					});
+
+					</script>
+
+	
+		
+		<footer>
+			<div class="w1200">
+				<p>제이에스엘인재개발원주식회사.	대표: 채민경</p>
+				<address>
+					대전광역시 중구 용두동 123
+				</address>
+			</div>
+		</footer>
+		
+		
+	</body>
+</html>
+		
+		
+		
+		
+		
+		
+		

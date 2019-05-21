@@ -1,0 +1,12 @@
+create table osusumeRoot(
+	rnum number(5) primary key,
+	rname varchar2(30),
+	rpass varchar2(30),
+	rtitle varchar2(50),
+	rcontent varchar2(2000),
+	rimgurl varchar2(200),
+	rreadcount number(4) default 0,
+	rwritedate date default sysdate
+);
+
+create sequence osusumeRoot_seq start with 1 increment by 1;
