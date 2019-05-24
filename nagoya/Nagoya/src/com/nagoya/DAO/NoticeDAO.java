@@ -6,34 +6,34 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.nagoya.VO.NoticeVO;
 import com.nagoya.VO.RootVO;
 
 import util.DBManager;
 
-public class rootDAO {
-	private rootDAO() {}
-	private static rootDAO instance = new rootDAO();
-	public static rootDAO getInstance() {
+public class NoticeDAO {
+	private NoticeDAO() {}
+	private static NoticeDAO instance = new NoticeDAO();
+	public static NoticeDAO getInstance() {
 		return instance;
 	}
 	
 	/**
 	 * 글쓰기의 내용을 DB에 적용하는 메소드
-	 * @param RootVo객체
+	 * @param NoticeVo객체
 	 */
-	public void insertRoot(RootVO vo) {
-		String sql = "insert into osusumeRoot (rnum, rname, rpass, rtitle, rcontent, rimgurl) values(osusumeRoot_seq.nextval,?,?,?,?,?)";
+	public void insertNotice(NoticeVO vo) {
+		String sql = "insert into helpNotice (nnum, nname, npass, ntitle, ncontent) values(helpNotice_seq.nextval,?,?,?,?)";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
 			conn = DBManager.getConnention();
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, vo.getRname());
-			pstmt.setString(2, vo.getRpass());
-			pstmt.setString(3, vo.getRtitle());
-			pstmt.setString(4, vo.getRcontent());
-			pstmt.setString(5, vo.getRimgurl());
+			pstmt.setString(1, vo.getNname());
+			pstmt.setString(2, vo.getNpass());
+			pstmt.setString(3, vo.getNtitle());
+			pstmt.setString(4, vo.getNcontent());
 			pstmt.executeUpdate();
 		}catch(Exception e){
 			e.printStackTrace();
@@ -43,12 +43,12 @@ public class rootDAO {
 	}
 	
 	/**
-	 * 루트추천게시판의 글 목록을 보여주기위한 메소드 
+	 * 공지사항게시판의 글 목록을 보여주기위한 메소드 
 	 * @return 게시글 전부
 	 */
-	public List<RootVO> selectAllRoot(){
-		String sql = "select * from osusumeroot order by rnum desc";
-		List<RootVO> list = new ArrayList<RootVO>();
+	public List<NoticeVO> selectAllNotice(){
+		String sql = "select * from helpNotice order by nnum desc";
+		List<NoticeVO> list = new ArrayList<NoticeVO>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -57,44 +57,21 @@ public class rootDAO {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				RootVO vo = new RootVO();
-				vo.setRnum(rs.getInt("rnum"));
-				vo.setRtitle(rs.getString("rtitle"));
-				vo.setRname(rs.getString("rname"));
-				vo.setRreadcount(rs.getInt("rreadcount"));
-				vo.setRwritedate(rs.getTimestamp("rwritedate"));
-				vo.setRimgurl(rs.getString("rimgurl"));
-				vo.setRcontent(rs.getString("rcontent"));
-				vo.setRpass(rs.getString("rpass"));
+				NoticeVO vo = new NoticeVO();
+				vo.setNnum(rs.getInt("nnum"));
+				vo.setNtitle(rs.getString("ntitle"));
+				vo.setNname(rs.getString("nname"));
+				vo.setNwritedate(rs.getTimestamp("nwritedate"));
+				vo.setNcontent(rs.getString("ncontent"));
+				vo.setNpass(rs.getString("npass"));
 				list.add(vo);
 			}
 		}catch(Exception e) {
-			
 			e.printStackTrace();
 		}finally {
 			DBManager.close(conn, pstmt, rs);
 		}
 		return list;
-	}
-	
-	/**
-	 * 게시글 리스트에서 글을 클릭하면 조회수가 1 증가하도록 만들어주는 메소드
-	 * @param rnum(게시글의 고유번호)
-	 */
-	public void updateReadCount(String rnum) {
-		String sql = "update osusumeroot set rreadcount = rreadcount + 1 where rnum = ?";
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		conn = DBManager.getConnention();
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, rnum);
-			pstmt.executeUpdate();
-		}catch(Exception e) {
-			e.printStackTrace();
-		}finally {
-			DBManager.close(conn, pstmt);
-		}
 	}
 	
 	/**

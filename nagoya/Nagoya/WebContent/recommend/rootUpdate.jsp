@@ -2,11 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
 <div class="contents">
-	<form name="root" method="post" action="RecommendRootServlet?command=root_write" enctype="multipart/form-data" onsubmit="return check()">		<!-- 책 526페이지 -->
-		<!-- 책에있는 게시판에 글쓰기는 첨부파일없이 글쓰기였음 
-			 하지만 나는 첨부파일이 있다구!
-			 so input엘리먼트 쓰지말고 action에 위와같이 써줘야 한다 -->
-		<!--  <input type="hidden" name="command" value="root_write">-->
+	<form name="root" method="post" action="RecommendRootServlet?command=root_update&rnum=${vo.rnum}" enctype="multipart/form-data" onsubmit="return check()">		<!-- 책 526페이지 -->
+		<!--  <input type="hidden" name="rnum" value="${vo.rnum}"> -->
 		<h2>추천루트글쓰기</h2>
 		<p>필수 입력란은 반드시 입력하셔야 합니다</p>
 		<table summary="번호, 제목, 내용, 글쓴이, 파일 입니다" class="member_table">
@@ -18,19 +15,21 @@
 			<tbody>
 				<tr>
 					<th>제목</th>
-					<td><input type="text" name="rtitle" class="w80"></td>
+					<td><input type="text" name="rtitle" class="w80" value="${vo.rtitle}"></td>
 				</tr>
 				<tr>
 					<th>글쓴이</th>
-					<td><input type="text" name="rname" class="w80"></td>
+					<td><input type="text" name="rname" class="w80" value="${vo.rname}"></td>
 				</tr>
 				<tr>
 					<th>내용</th>
-					<td><textarea class="w80 noresize" name="rcontent" id="ir1"></textarea></td>
+					<td><textarea class="w80 noresize" name="rcontent" id="ir1">${vo.rcontent}</textarea></td>
 				</tr>
 				<tr>
 					<th>첨부파일</th>
-					<td><input type="file" name="rimgurl" class="w80"></td>
+					<td>
+					<input type="file" name="rimgurl" class="w80">&nbsp;&nbsp;&nbsp;<img src="upload/${vo.rimgurl}" style="width:30px; height:30px; vertical-align:middle;">
+					</td>
 				</tr>
 				<tr>
 					<th>비밀번호</th>
@@ -38,7 +37,7 @@
 				</tr>
 				<tr>
 					<td colspan="2" class="txtc">
-					<input type="submit" value="글쓰기" class="btn_ok">
+					<input type="submit" value="저장" class="btn_ok">
 					<input type="reset" value="재작성" class="btn_reset">
 					<input type="button" value="목록" onclick="location.href='RecommendRootServlet?command=root_list'">
 					</td>
@@ -69,8 +68,16 @@
 				alert("파일을 올리쇼");
 				return false;
 			}
+			if(root.rpass.value=="") {
+				alert("비밀번호 입력하시오");
+				root.rpass.focus();
+				return false;
+			}
 			return true;
 		}
+	</script>
+	<script>
+		alert('${message}');
 	</script>
 	<script type="text/javascript">
 

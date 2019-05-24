@@ -19,6 +19,21 @@ public class ActionFactory {
 		action = new RootWriteAction();
 	}else if(command.equals("root_list")) {
 		action = new RootListAction();
+	}else if(command.equals("root_view")) {
+		action = new RootViewAction();
+	}else if(command.equals("root_delete")) {
+		action = new RootDeleteAction();
+	}else if(command.equals("root_modify")) {
+		action = new RootModifyAction();
+	}else if(command.equals("root_update")) {
+		action = new RootUpdateAction();
+	}
+	else if(command.equals("notice_list")) {
+		action = new NoticeListAction();
+	}else if(command.equals("notice_write_form")) {
+		action = new NoticeWriteFormAction();
+	}else if(command.equals("notice_write")) {
+		action = new NoticeWriteAction();
 	}
 	return action;
 	}

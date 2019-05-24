@@ -10,3 +10,14 @@ create table osusumeRoot(
 );
 
 create sequence osusumeRoot_seq start with 1 increment by 1;
+
+create table helpNotice(
+	nnum number(5) primary key,
+	nname varchar2(30),
+	npass varchar2(30),
+	ntitle varchar2(50),
+	ncontent varchar2(2000),
+	nwritedate date default sysdate
+);
+
+create sequence helpNotice_seq start with 1 increment by 1;

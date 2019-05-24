@@ -56,7 +56,7 @@
 	                </li>    
 	                <li><a href="#">여행도우미</a>
 	                    <ul class="depth2">
-	                        <li><a href="../helpDesk/notice.jsp">공지사항</a></li>
+	                        <li><a href="HelpDeskServlet?command=notice_list">공지사항</a></li>
 	                        <li><a href="../helpDesk/guide.jsp">관광안내</a></li>
 	                        <li><a href="../helpDesk/explain.jsp">문화관광해설 신청</a></li>
 	                    </ul>

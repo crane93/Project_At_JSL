@@ -34,35 +34,21 @@
 					<th>제목</th>
 					<th>글쓴이</th>
 					<th>날짜</th>
-					<th>조회수</th>
 				</tr>
-				<tr>
-					<td>10</td>
-					<td><a href="notice_view.html">2박 3일일정</a></td>
-					<td>I♡NAGOYA</td>
-					<td>2019-03-19</td>
-					<td>112</td>
-				</tr>
-				<tr>
-					<td>10</td>
-					<td><a href="notice_view.html">3박 4일일정</a></td>
-					<td>I♡NAGOYA</td>
-					<td>2019-03-19</td>
-					<td>112</td>
-				</tr>
-				<tr>
-					<td>10</td>
-					<td><a href="notice_view.html">평생일정</a></td>
-					<td>I♡NAGOYA</td>
-					<td>2019-03-19</td>
-					<td>112</td>
-				</tr>
+				<c:forEach var="noticelist" items="${noticelist}">
+					<tr>
+						<td>${noticelist.nnum}</td>
+						<td><a href="HelpDeskServlet?command=notice_view&nnum=${noticelist.nnum}">${noticelist.ntitle}</a></td>
+						<td>${noticelist.nname}</td>
+						<td>${noticelist.nwritedate}</td>
+					</tr>
+				</c:forEach>
 			</table>
 		</div>
 		
 		<div class="page">
 			<a href=""><< 이전</a> <a href="">1</a> <a href="">2</a> <a href="">3</a> <a href="">4</a> <a href="">5</a> <a href="">다음 >></a>
-			<a href="notice_write.jsp" class="btn_write">글쓰기</a>
+			<a href="HelpDeskServlet?command=notice_write_form" class="btn_write">글쓰기</a>
 		</div>
 	</div>
 		<!-- content end -->

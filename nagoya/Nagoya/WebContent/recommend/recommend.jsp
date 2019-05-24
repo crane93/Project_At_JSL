@@ -39,7 +39,7 @@
 				<c:forEach var="rootlist" items="${rootlist}">
 					<tr>
 						<td>${rootlist.rnum}</td>
-						<td class="title"><a href="RecommendRootServlet?command=root_view&num=${rootlist.rnum}">${rootlist.rtitle}</a></td>
+						<td class="title"><a href="RecommendRootServlet?command=root_view&rnum=${rootlist.rnum}">${rootlist.rtitle}</a></td>
 						<td>${rootlist.rname}</td>
 						<td><fmt:formatDate value="${rootlist.rwritedate}"></fmt:formatDate></td>
 						<td>${rootlist.rreadcount}</td>
