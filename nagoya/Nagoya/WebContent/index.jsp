@@ -45,7 +45,7 @@
 	                	<ul class="depth2">
 	                        <li><a href="recommend/recommend.jsp">관광지소개</a></li>
 	                        <li><a href="RecommendRootServlet?command=root_list">おすすめのルート</a></li>
-	                        <li><a href="recommend/gurume.jsp">おすすめのグルメ</a></li>
+	                        <li><a href="GurumeServlet?command=gurume_list">おすすめのグルメ</a></li>
 	                    </ul>
 	                </li>    
 	                <li><a href="../cityTour/cityTour.html">시티투어</a>
@@ -76,35 +76,31 @@
 			<img src="images/main3.png" class="w100">
 		</div>
 	</div>
+	<section class="news_group">
+		<div class="news_tit">
+			<p class="sub_tit">名古屋グルメ</p>
+			<h2>나고야食べ物</h2>
+			<p class="text">나고야의 음식을 소개해드립니다</p>
+			<a href="GurumeServlet?command=gurume_list" class="btn-border">READ MORE</a>
+		</div>
+		<ul class="news_list">
+			<c:forEach var="gurumelist" items="${gurumelist}">
+				<li>
+					<a href="GurumeServlet?command=gurume_view&gnum=${gurumelist.gnum}">
+						<img src="upload/${gurumelist.gimgurl}" alt="${gurumelist.gtitle}" class="w100">
+						<strong>${gurumelist.gtitle}</strong>
+						<p>${gurumelist.gcontent}</p>
+						
+					</a>
+				</li>
+			</c:forEach>	
+		</ul>
+	</section>
 	<section class="tab-cont">
 		<h2 class="readonly">탭 메뉴</h2>
 		<div class="inner">
 			<ul class="tab-style">
 				<li class="active"><a href="javascript:void(0);">공지사항</a>
-					<ul class="inner-tab">
-						<li><a href="#">
-								<p class="p1">하이라이트 뉴스입니다</p>
-								<p class="p2">하이라이트 뉴스는 언제 제일 빠른 정보를 전달합니다</p>
-						</a> <span>2019. <span class="date">03.25</span>
-						</span></li>
-						<li><a href="#">경제뉴스 취재를 하다</a><span>2019.03.24</span></li>
-						<li><a href="#">경제뉴스 취재를 하다</a><span>2019.03.24</span></li>
-						<li><a href="#">경제뉴스 취재를 하다</a><span>2019.03.24</span></li>
-						<li><a href="#">경제뉴스 취재를 하다</a><span>2019.03.24</span></li>
-					</ul></li>
-				<li class="active"><a href="javascript:void(0);">제품안내</a>
-					<ul class="inner-tab">
-						<li><a href="#">
-								<p class="p1">하이라이트 뉴스입니다</p>
-								<p class="p2">하이라이트 뉴스는 언제 제일 빠른 정보를 전달합니다</p>
-						</a> <span>2019. <span class="date">03.25</span>
-						</span></li>
-						<li><a href="#">경제뉴스 취재를 하다</a><span>2019.03.24</span></li>
-						<li><a href="#">경제뉴스 취재를 하다</a><span>2019.03.24</span></li>
-						<li><a href="#">경제뉴스 취재를 하다</a><span>2019.03.24</span></li>
-						<li><a href="#">경제뉴스 취재를 하다</a><span>2019.03.24</span></li>
-					</ul></li>
-				<li class="active"><a href="javascript:void(0);">제품안내</a>
 					<ul class="inner-tab">
 						<li><a href="#">
 								<p class="p1">하이라이트 뉴스입니다</p>

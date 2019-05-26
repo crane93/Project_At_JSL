@@ -17,19 +17,38 @@
 					<input type="submit" value="검색" class="btn_submit">
 				</form>
 			</div>
-			<ul>
-				<li>
-					<a href="product_view.html">
-						<img src="../images/box1.jpg" alt="상품명" class="w100">
-						<span class="pro_title">오이시이데스!</span>
-						<span class="pro_cont">벌써 몇 주동안 사람들이 입소문에 의해 편의점과 슈퍼마켓에 진통 아닌 ...</span>
-					</a>
-				</li>
-			</ul>
+			<div class="gallery_wrap">
+			
+			<c:forEach var="gurumelist" items="${gurumelist}">		<!-- PhotoListServlet에서 만든 Photo리스트를 가져왔습니다아 -->
+				<ul>
+					<li>
+						<a class='clickimg'><img src="upload/${gurumelist.gimgurl}" alt=""></a>					<!-- 작은사진 보임 -->
+						<span class="gtitle">${gurumelist.gtitle}</span>
+						<div class="gallery_count">
+							<span class="count"><i class="fa fa-space-shuttle" aria-hidden="true"></i></span>
+							<span id="okval" class="${gurumelist.gnum}">&nbsp;${gurumelist.greadcount}</span>
+						</div>
+						<p name="gnum">${gurumelist.gnum}</p>
+					</li>
+				</ul>
+			</c:forEach>
+		  </div>
+			<!--<c:forEach var="gurumelist" items="${gurumelist}">
+				<ul>
+					<li>
+						<a href="GurumeServlet?command=gurume_view">
+							<img src="${gurumelist.gimgurl}" alt="상품명" class="w100">
+							<span class="pro_title">${gurumelist.gtitle}</span>
+							<span class="pro_cont">${gurumelist.gcontent}</span>
+							<span class=>${gurumelist.greadcount}</span>
+						</a>
+					</li>
+				</ul>
+			</c:forEach>-->
 		</div>
 		<div class="page">
 			<a href=""><< 이전</a> <a href="">1</a> <a href="">2</a> <a href="">3</a> <a href="">4</a> <a href="">5</a> <a href="">다음 >></a>
-			<a href="product_write.html" class="btn_write">글쓰기</a>
+			<a href="GurumeServlet?command=gurume_write_form" class="btn_write">글쓰기</a>
 		</div>
 	</div>
 <!-- content end -->
@@ -55,7 +74,7 @@
 			$.ajax ({									//ajax: 비동기식으로 처리하는 방법, 조회수증가하고 작은사진이 큰사진으로 보임
 				type:"post",							//데이터 전송방식: post
 				dataType:"json",
-				url:'photocount.do',					/*비동기식으로 처리되는 프로그램*/
+				url:'GurumeServlet?command=gurume_view',					/*비동기식으로 처리되는 프로그램*/
 				data: {no:noajax},			
 				async:false,							
 				success:function(data) {				//성공하면 처리된 결과값을 data에 담아서...

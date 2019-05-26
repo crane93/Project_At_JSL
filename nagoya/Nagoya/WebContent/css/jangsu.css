@@ -543,3 +543,17 @@ a:link {
     border:0 none;
     cursor:pointer;
 }
+.gallery_wrap ul li .gallery_count {float:right; display:inline-block; padding-top:20px;}
+
+.news_group {width:1100px; margin:100px auto; overflow:hidden;}
+.news_group .news_tit, .news_group .news_list li {width:275px; float:left;}
+.news_group .news_list li {border:1px solid #ddd; border-right:0;}
+/* .news_group .news_list li.news_end {border-right:1px solid #ddd;} */
+.news_group .news_list li:nth-child(3) {border-right:1px solid #ddd;}
+.news_group .sub_tit {font-size:20px; color:#000; letter-spacing:-1.5px;}
+.news_group .text {font-size:16px; color:#666; margin-bottom:30px;}
+.news_group h2 {font-size:32px; color:#000;margin:5px 0 12px; letter-spacing:-2px;}
+.btn-border {border:2px solid #000; padding:7px 11px; padding-right:46px; color:#000; font-size:12px; font-weight:bold; position:relative;}
+.btn-border:after {position:absolute; width:6px; height:6px; border-right:1px solid #000; border-top:1px solid #000; display:block; content:""; right:18px; top:50%; margin-top:-3px; transform:rotate(45deg);}
+.white {border:2px solid #fff; color:#fff;}
+.white:after {border-right:1px solid #fff; border-top:1px solid #fff;}

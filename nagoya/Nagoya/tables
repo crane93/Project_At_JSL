@@ -21,3 +21,16 @@ create table helpNotice(
 );
 
 create sequence helpNotice_seq start with 1 increment by 1;
+
+create table gurume(
+	gnum number(5) primary key,
+	gname varchar2(30),
+	gpass varchar2(30),
+	gtitle varchar2(50),
+	gcontent varchar2(2000),
+	gimgurl varchar2(200),
+	greadcount number(4) default 0,
+	gwritedate date default sysdate
+);
+
+create sequence gurume_seq start with 1 increment by 1;

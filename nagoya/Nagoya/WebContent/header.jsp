@@ -45,7 +45,7 @@
 	                	<ul class="depth2">
 	                        <li><a href="../recommend/recommend.jsp">관광지소개</a></li>
 	                        <li><a href="RecommendRootServlet?command=root_list">おすすめのルート</a></li>
-	                        <li><a href="../recommend/gurume.jsp">おすすめのグルメ</a></li>
+	                        <li><a href="GurumeServlet?command=gurume_list">おすすめのグルメ</a></li>
 	                    </ul>
 	                </li>    
 	                <li><a href="../cityTour/cityTour.html">시티투어</a>

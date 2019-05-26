@@ -13,6 +13,7 @@ public class ActionFactory {
 	
 	public Action getAction(String command) {
 	Action action = null;
+	//추천관광지-루트추천게시판
 	if(command.equals("root_write_form")) {
 		action = new RootWriteFormAction();
 	}else if(command.equals("root_write")) {
@@ -28,6 +29,18 @@ public class ActionFactory {
 	}else if(command.equals("root_update")) {
 		action = new RootUpdateAction();
 	}
+	//추천관광지-구루메게시판
+	else if(command.equals("gurume_write_form")) {
+		action = new GurumeWriteFormAction();
+	}else if(command.equals("gurume_write")) {
+		action = new GurumeWriteAction();
+	}else if(command.equals("gurume_list")) {
+		action = new GurumeListAction();
+	}else if(command.equals("gurume_view")) {
+		action = new GurumeViewAction();
+	}
+	
+	//공지사항-공지사항게시판
 	else if(command.equals("notice_list")) {
 		action = new NoticeListAction();
 	}else if(command.equals("notice_write_form")) {
