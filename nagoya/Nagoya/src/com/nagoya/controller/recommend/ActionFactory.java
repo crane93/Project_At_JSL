@@ -34,6 +34,14 @@ public class ActionFactory {
 		action = new NoticeWriteFormAction();
 	}else if(command.equals("notice_write")) {
 		action = new NoticeWriteAction();
+	}else if(command.equals("notice_delete")) {
+		action = new NoticeDeleteAction();
+	}else if(command.equals("notice_view")) {
+		action = new NoticeViewAction();
+	}else if(command.equals("notice_modify")) {
+		action = new NoticeModifyAction();
+	}else if(command.equals("notice_update")) {
+		action = new NoticeUpdateAction();
 	}
 	return action;
 	}

@@ -75,31 +75,29 @@ public class NoticeDAO {
 	}
 	
 	/**
-	 * 루트리스트에서 클릭한 게시글을 찾는 메소드
-	 * @param rnum
-	 * @return rnum에 해당하는 게시글의 컬럼들
+	 * 공지사항리스트에서 클릭한 게시글을 찾는 메소드
+	 * @param nnum
+	 * @return nnum에 해당하는 게시글의 컬럼들
 	 */
-	public RootVO viewRoot(String rnum) {
-		String sql = "select * from osusumeroot where rnum = ?";
-		RootVO vo = null;
+	public NoticeVO viewNotice(String nnum) {
+		String sql = "select * from helpNotice where nnum = ?";
+		NoticeVO vo = null;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
 			conn = DBManager.getConnention();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, rnum);
+			pstmt.setString(1, nnum);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				vo = new RootVO();
-				vo.setRnum(rs.getInt("rnum"));
-				vo.setRcontent(rs.getString("rcontent"));
-				vo.setRimgurl(rs.getString("rimgurl"));
-				vo.setRname(rs.getString("rname"));
-				vo.setRpass(rs.getString("rpass"));
-				vo.setRreadcount(rs.getInt("rreadcount"));
-				vo.setRtitle(rs.getString("rtitle"));
-				vo.setRwritedate(rs.getTimestamp("rwritedate"));
+				vo = new NoticeVO();
+				vo.setNnum(rs.getInt("nnum"));
+				vo.setNcontent(rs.getString("ncontent"));
+				vo.setNname(rs.getString("nname"));
+				vo.setNpass(rs.getString("npass"));
+				vo.setNtitle(rs.getString("ntitle"));
+				vo.setNwritedate(rs.getTimestamp("nwritedate"));
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -111,16 +109,16 @@ public class NoticeDAO {
 	
 	/**
 	 * 게시글삭제메소드
-	 * @param rnum
+	 * @param nnum
 	 */
-	public void deleteRoot(String rnum) {
-		String sql = "delete from osusumeroot where rnum = ?";
+	public void deleteNotice(String nnum) {
+		String sql = "delete from helpNotice where nnum = ?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
 			conn = DBManager.getConnention();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, rnum);
+			pstmt.setString(1, nnum);
 			pstmt.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -131,21 +129,18 @@ public class NoticeDAO {
 	
 	/**
 	 * 게시글을 수정하는 메소드
-	 * @param rnum
 	 */
-	public void updateRoot(RootVO vo) {
-		String sql = "update osusumeroot set rtitle = ?, rname = ?, rcontent = ?, rimgurl = ?, rpass = ? where rnum = ?";
+	public void updateNotice(NoticeVO vo) {
+		String sql = "update helpNotice set ntitle = ?, nname = ?, ncontent = ? where nnum = ?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
 			conn = DBManager.getConnention();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, vo.getRtitle());
-			pstmt.setString(2, vo.getRname());
-			pstmt.setString(3, vo.getRcontent());
-			pstmt.setString(4, vo.getRimgurl());
-			pstmt.setString(5, vo.getRpass());
-			pstmt.setInt(6, vo.getRnum());
+			pstmt.setString(1, vo.getNtitle());
+			pstmt.setString(2, vo.getNname());
+			pstmt.setString(3, vo.getNcontent());
+			pstmt.setInt(4, vo.getNnum());
 			pstmt.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -157,8 +152,8 @@ public class NoticeDAO {
 	/**
 	 * 게시글 수정에서 글작성시 입력한 비밀번호와 일치하는지 검사하는 메소드
 	 */
-	public boolean checkPass(int rnum, String rname) {
-		String sql = "select * from osusumeroot where rnum = ? and rname = ?";
+	public boolean checkPass(String nnum, String npass) {
+		String sql = "select * from helpNotice where Nnum = ? and npass= ?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -166,8 +161,8 @@ public class NoticeDAO {
 		try {
 			conn = DBManager.getConnention();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, rnum);
-			pstmt.setString(2, rname);
+			pstmt.setString(1, nnum);
+			pstmt.setString(2, npass);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				check = true;
