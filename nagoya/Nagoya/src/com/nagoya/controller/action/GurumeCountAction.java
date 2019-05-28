@@ -10,11 +10,11 @@ import org.json.simple.JSONObject;
 
 import com.nagoya.DAO.GurumeDAO;
 
-public class GurumeViewAction implements Action {
+public class GurumeCountAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int gnum = Integer.parseInt(request.getParameter("gnum"));
+		int gnum = Integer.parseInt(request.getParameter("no"));
 		GurumeDAO dao = GurumeDAO.getInstance();
 		dao.updateReadCount(gnum);
 		int like = dao.reCount(gnum);			//조회수 변수

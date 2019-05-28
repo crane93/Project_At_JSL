@@ -36,8 +36,8 @@ public class ActionFactory {
 		action = new GurumeWriteAction();
 	}else if(command.equals("gurume_list")) {
 		action = new GurumeListAction();
-	}else if(command.equals("gurume_view")) {
-		action = new GurumeViewAction();
+	}else if(command.equals("gurume_count")) {
+		action = new GurumeCountAction();
 	}
 	
 	//공지사항-공지사항게시판

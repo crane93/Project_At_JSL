@@ -18,7 +18,9 @@
 				</form>
 			</div>
 		</div>
-
+		<div class="record_group">
+			<p>총게시글<span>${totalcount}</span>건</p>
+		</div>
 		<div class="notice_body">
 			<table summary="공지사항표입니다. 번호, 제목, 글쓴이, 날짜, 조회수 항목이 있습니다" style="width:100%">
 				<caption class="readonly">공지사항</caption>
@@ -35,6 +37,7 @@
 					<th>글쓴이</th>
 					<th>날짜</th>
 				</tr>
+				<c:set var="num" value="${totcount - ((nowpage-1) * 10)}"/>
 				<c:forEach var="noticelist" items="${noticelist}">
 					<tr>
 						<td>${noticelist.nnum}</td>
@@ -42,14 +45,18 @@
 						<td>${noticelist.nname}</td>
 						<td>${noticelist.nwritedate}</td>
 					</tr>
+					<c:set var="num" value="${num-1}"/>		
 				</c:forEach>
 			</table>
 		</div>
 		
 		<div class="page">
-			<a href=""><< 이전</a> <a href="">1</a> <a href="">2</a> <a href="">3</a> <a href="">4</a> <a href="">5</a> <a href="">다음 >></a>
+			<div>
+				${elfunc:pageList(nowpage,totpage,url,addtag)}
+			</div>
 			<a href="HelpDeskServlet?command=notice_write_form" class="btn_write">글쓰기</a>
 		</div>
+		
 	</div>
 		<!-- content end -->
 <%@ include file="../footer.jsp" %>

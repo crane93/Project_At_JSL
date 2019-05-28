@@ -128,7 +128,7 @@ public class GurumeDAO {
 	}
 	
 	public int reCount(int code) {
-		String sql = "select greadecount from gurume where gnum = ?";
+		String sql = "select greadcount from gurume where gnum = ?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -139,7 +139,7 @@ public class GurumeDAO {
 			pstmt.setInt(1, code);
 			rs = pstmt.executeQuery();
 			if(rs.next() ) {
-				like=rs.getInt("greadecount");
+				like=rs.getInt("greadcount");
 			}
 		}catch(Exception e) {
 			e.printStackTrace();

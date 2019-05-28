@@ -37,28 +37,17 @@
 	                <li><a href="intro/intro.html">나고야소개</a>
 	                    <ul class="depth2">
 	                        <li><a href="intro/abtNagoya.jsp">나고야에 대하여</a></li>
-	                        <li><a href="intro/history.jsp">역사</a></li>
-	                        <li><a href="intro/location.jsp">위치</a></li>
 	                    </ul>
 	                </li>
 	                <li><a href="../recommend/recommend.jsp">추천관광지</a>
 	                	<ul class="depth2">
-	                        <li><a href="recommend/recommend.jsp">관광지소개</a></li>
 	                        <li><a href="RecommendRootServlet?command=root_list">おすすめのルート</a></li>
 	                        <li><a href="GurumeServlet?command=gurume_list">おすすめのグルメ</a></li>
 	                    </ul>
-	                </li>    
-	                <li><a href="../cityTour/cityTour.html">시티투어</a>
-	                	<ul class="depth2">
-	                        <li><a href="cityTour/courseIntro.jsp">코스소개</a></li>
-	                        <li><a href="cityTour/reservation.jsp">예약 및 현황</a></li>
-	                    </ul>
-	                </li>    
+	                </li>       
 	                <li><a href="#">여행도우미</a>
 	                    <ul class="depth2">
 	                        <li><a href="HelpDeskServlet?command=notice_list">공지사항</a></li>
-	                        <li><a href="helpDesk/guide.jsp">관광안내</a></li>
-	                        <li><a href="helpDesk/explain.jsp">문화관광해설 신청</a></li>
 	                    </ul>
 	                </li>
 	            </ul>
@@ -100,18 +89,25 @@
 		<h2 class="readonly">탭 메뉴</h2>
 		<div class="inner">
 			<ul class="tab-style">
-				<li class="active"><a href="javascript:void(0);">공지사항</a>
+				<li class="active">
 					<ul class="inner-tab">
-						<li><a href="#">
-								<p class="p1">하이라이트 뉴스입니다</p>
-								<p class="p2">하이라이트 뉴스는 언제 제일 빠른 정보를 전달합니다</p>
-						</a> <span>2019. <span class="date">03.25</span>
-						</span></li>
-						<li><a href="#">경제뉴스 취재를 하다</a><span>2019.03.24</span></li>
-						<li><a href="#">경제뉴스 취재를 하다</a><span>2019.03.24</span></li>
-						<li><a href="#">경제뉴스 취재를 하다</a><span>2019.03.24</span></li>
-						<li><a href="#">경제뉴스 취재를 하다</a><span>2019.03.24</span></li>
-					</ul></li>
+						<li><a href="#"></a>
+								<p class="p1">공지사항</p>
+								<c:forEach var="noticeLastest5" items="${noticelist}" varStatus="status">		<!-- 책 364페이지,  -->						
+									<c:choose>
+										<c:when test="${status.first}">
+											<p class="p2"><a href="HelpDeskServlet?command=notice_view&nnum=${noticeLastest5.nnum}">${noticeLastest5.ntitle}</a></p>
+											<span class="date">${noticeLastest5.nwritedate}</span>
+												<p class="text">${noticeLastest5.ncontent}</p>			
+										</c:when>
+										<c:otherwise>
+											<li><a href="HelpDeskServlet?command=notice_view&nnum=${noticeLastest5.nnum}">${noticeLastest5.ntitle}</a></li>
+										</c:otherwise>
+									</c:choose>
+								</c:forEach>
+						</li>
+					</ul>
+				</li>
 				<li class="last"></li>
 			</ul>
 		</div>
@@ -126,13 +122,22 @@
 		<div class="wrap-list">
 			<ul>
 				<li class="notice-title">
-					<p class="txt20">내 인생을 새롭게 하자</p>
-					<p class="txt40">[일본취업]</p>
-					<p class="txt17">JSL</p>
+					<p class="txt20">나고야명물</p>
+					<p class="txt40">히쯔마부시</p>
+					<!-- <p class="txt17">JSL</p> -->
 				</li>
-				<li class="notice1"></li>
-				<li class="notice2"></li>
-				<li class="notice3"></li>
+				<li class="notice1">
+					<p class="txt20">나고야명물</p>
+					<p class="txt40">미소카츠</p>
+				</li>
+				<li class="notice2">
+					<p class="txt20">나고야명소</p>
+					<p class="txt40">과학관</p>
+				</li>
+				<li class="notice3">
+					<p class="txt20">나고야명소</p>
+					<p class="txt40">사카에</p>
+				</li>
 			</ul>
 		</div>
 	</div>

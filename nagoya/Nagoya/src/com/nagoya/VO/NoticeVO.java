@@ -9,7 +9,21 @@ public class NoticeVO {
 	private String ntitle;
 	private String ncontent;
 	private Timestamp nwritedate;
+	private int preseq;
+	private int afterseq;
 	
+	public int getPreseq() {
+		return preseq;
+	}
+	public void setPreseq(int preseq) {
+		this.preseq = preseq;
+	}
+	public int getAfterseq() {
+		return afterseq;
+	}
+	public void setAfterseq(int afterseq) {
+		this.afterseq = afterseq;
+	}
 	public int getNnum() {
 		return nnum;
 	}

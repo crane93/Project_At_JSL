@@ -18,7 +18,6 @@
 				</form>
 			</div>
 			<div class="gallery_wrap">
-			
 			<c:forEach var="gurumelist" items="${gurumelist}">		<!-- PhotoListServlet에서 만든 Photo리스트를 가져왔습니다아 -->
 				<ul>
 					<li>
@@ -32,7 +31,17 @@
 					</li>
 				</ul>
 			</c:forEach>
-		  </div>
+		  	</div>
+		  	
+		  	<div class="modal" id="modal">
+         		<div class="modal_background"></div>
+         			<div class="modal_content">
+            			<a href="">닫기<i class="fa fa-close"></i></a>
+            			<div class="modal_body">
+               				<img src="" alt="" class="img-res" style="width: 100%;">
+            			</div>
+         			</div>
+      		</div>
 			<!--<c:forEach var="gurumelist" items="${gurumelist}">
 				<ul>
 					<li>
@@ -69,18 +78,17 @@
 			e.preventDefault();												/*임시링크(href="")가 있을 때 그 임시링크를 클릭해도 스크롤바가 위로 안가게 해줌*/
 			var image = $(this).children().attr('src');						/*작은사진의 경로가 image에 저장됨/   this:.gallery_wrap > ul > li > a*/
 			//var gogo = $(this).next().children().attr("href");			/*(this).next():.gallery_wrap > ul > li > a의 다음요소 */
-			var noajax = $(this).next().children('#okval').attr('class');	/*경로의 결과 ${photolist.num}가 noajax로 저장된다*/
+			var noajax = $(this).next().next().children('#okval').attr('class');	/*경로의 결과 ${photolist.num}가 noajax로 저장된다*/
 			
 			$.ajax ({									//ajax: 비동기식으로 처리하는 방법, 조회수증가하고 작은사진이 큰사진으로 보임
 				type:"post",							//데이터 전송방식: post
 				dataType:"json",
-				url:'GurumeServlet?command=gurume_view',					/*비동기식으로 처리되는 프로그램*/
+				url:'GurumeServlet?command=gurume_count',					/*비동기식으로 처리되는 프로그램*/
 				data: {no:noajax},			
 				async:false,							
 				success:function(data) {				//성공하면 처리된 결과값을 data에 담아서...
-					alert("ajaxa mondainai");
 					addCount = data.like;				
-					$("#okayval"+"."+noajax).html(addCount);
+					$("#okval"+"."+noajax).html(addCount);
 				},
 				error:function(request,status,error) {
 					alert("ajax fail");

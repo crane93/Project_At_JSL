@@ -66,10 +66,10 @@ header nav  ul.depth1 > li {float:left; width:140px; height:60px; line-height:60
 .wrap-list .notice3 {margin-right:0;}
 
 .wrap-list ul li {cursor:pointer; text-align:center;}
-.wrap-list ul li:nth-child(1) {background:url(../images/box1.jpg) no-repeat center center; background-size:100% 100%; transition:all 0.5s;}
-.wrap-list ul li:nth-child(2) {background:url(../images/box2.jpg) no-repeat center center; background-size:100% 100%; transition:all 0.5s;}
-.wrap-list ul li:nth-child(3) {background:url(../images/box3.jpg) no-repeat center center; background-size:100% 100%; transition:all 0.5s;}
-.wrap-list ul li:nth-child(4) {background:url(../images/box4.jpg) no-repeat center center; background-size:100% 100%; transition:all 0.5s;}
+.wrap-list ul li:nth-child(1) {background:url(../images/hitsumabushi.jpg) no-repeat center center; background-size:100% 100%; transition:all 0.5s;}
+.wrap-list ul li:nth-child(2) {background:url(../images/misokatsu.jpg) no-repeat center center; background-size:100% 100%; transition:all 0.5s;}
+.wrap-list ul li:nth-child(3) {background:url(../images/kagaku.jpg) no-repeat center center; background-size:100% 100%; transition:all 0.5s;}
+.wrap-list ul li:nth-child(4) {background:url(../images/sakae.jpg) no-repeat center center; background-size:100% 100%; transition:all 0.5s;}
 .wrap-list ul li:hover {background-size:110% 110%;}
 .wrap-list ul li p.txt20 {font-size:20px; color:#fff;}
 .wrap-list ul li p.txt40 {font-size:40px; color:#fff; margin-top:20px;}

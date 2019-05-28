@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
+<%@ taglib prefix="elfunc" uri="..//WEB-INF/tlds/el-functions.tld" %>
 <!doctype html>
 <html>
 	<head>
@@ -37,28 +38,17 @@
 	                <li><a href="../intro/intro.html">나고야소개</a>
 	                    <ul class="depth2">
 	                        <li><a href="../intro/abtNagoya.jsp">나고야에 대하여</a></li>
-	                        <li><a href="../intro/history.jsp">역사</a></li>
-	                        <li><a href="../intro/location.jsp">위치</a></li>
 	                    </ul>
 	                </li>
-	                <li><a href="../recommend/recommend.jsp">추천관광지</a>
+	                <li><a href="#">추천관광지</a>
 	                	<ul class="depth2">
-	                        <li><a href="../recommend/recommend.jsp">관광지소개</a></li>
 	                        <li><a href="RecommendRootServlet?command=root_list">おすすめのルート</a></li>
 	                        <li><a href="GurumeServlet?command=gurume_list">おすすめのグルメ</a></li>
 	                    </ul>
-	                </li>    
-	                <li><a href="../cityTour/cityTour.html">시티투어</a>
-	                	<ul class="depth2">
-	                        <li><a href="../cityTour/courseIntro.jsp">코스소개</a></li>
-	                        <li><a href="../cityTour/reservation.jsp">예약 및 현황</a></li>
-	                    </ul>
-	                </li>    
+	                </li>      
 	                <li><a href="#">여행도우미</a>
 	                    <ul class="depth2">
 	                        <li><a href="HelpDeskServlet?command=notice_list">공지사항</a></li>
-	                        <li><a href="../helpDesk/guide.jsp">관광안내</a></li>
-	                        <li><a href="../helpDesk/explain.jsp">문화관광해설 신청</a></li>
 	                    </ul>
 	                </li>
 	            </ul>

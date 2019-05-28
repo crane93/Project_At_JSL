@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.nagoya.DAO.GurumeDAO;
+import com.nagoya.DAO.NoticeDAO;
 import com.nagoya.VO.GurumeVO;
+import com.nagoya.VO.NoticeVO;
 
 @WebServlet("/index.do")
 public class IndexServlet extends HttpServlet {
@@ -27,6 +29,9 @@ public class IndexServlet extends HttpServlet {
 		GurumeDAO dao = GurumeDAO.getInstance();
 		List<GurumeVO> gurumelist = dao.gurumeLatest4();
 		request.setAttribute("gurumelist", gurumelist);
+		NoticeDAO ndao =NoticeDAO.getInstance(); 
+		List<NoticeVO> noticelist = ndao.noticeLatest5();
+		request.setAttribute("noticelist", noticelist);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 		dispatcher.forward(request, response); 
 	}
