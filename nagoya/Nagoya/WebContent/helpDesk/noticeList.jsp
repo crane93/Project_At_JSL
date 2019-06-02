@@ -8,12 +8,13 @@
 			<p>여행 일정에 따른 루트를 추천해드립니다</p>
 			<div class="line"></div>
 			<div class="search_form">
-				<form name="search" method="post" action="product.html">
+				<form method="post" action="HelpDeskServlet?command=notice_list">
+				
 					<select name="sel">
-						<option value="제목">제목</option>
-						<option value="내용">내용</option>
+						<option value="ntitle">제목</option>
+						<option value="ncontent">내용</option>
 					</select>
-					<input type="text" name="search_txt" class="se_txt">
+					<input type="text" name="search" class="se_txt">
 					<input type="submit" value="검색" class="btn_submit">
 				</form>
 			</div>

@@ -316,11 +316,10 @@ public class NoticeDAO {
 
 		try {
 			conn = DBManager.getConnention();
-			query = "select X.* from (select rownum as nnum, A.* from "
+			query = "select X.* from (select rownum as rnum, A.* from "
 					+ "(select * from helpNotice order by nwritedate desc) A where " + s_query + // ()안의 select문을 A에 저장해라
-					" and rownum <= ?) X where " + s_query + " and X.nnum >= ?";
+					" and rownum <= ?) X where " + s_query + " and X.rnum >= ?";
 			// x, a, x 가상테이블이라고 생각하고 생각하자
-
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, endpage);
 			pstmt.setInt(2, pagestart);
@@ -335,6 +334,7 @@ public class NoticeDAO {
 				nVo.setNcontent(rs.getString("ncontent"));
 				nVo.setNwritedate(rs.getTimestamp("nwritedate"));
 				list.add(nVo);
+				System.out.println(nVo.getNname());
 			}
 		} catch (SQLException ex) {
 			ex.printStackTrace();
